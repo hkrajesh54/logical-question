@@ -1,0 +1,78 @@
+class Account:
+    def __init__(self,id,holder_name):
+        self.id=id
+        self.holder_name=holder_name
+        self._balance=0  #encapsulation
+
+        
+    def check_balance(self):
+        print(f"Balance :{self._balance}")
+
+    def Deposit(self,amount):
+        self._balance += amount
+        print(f"Deposit succefull.updated balance:{self._balance}")
+
+    def Withdraw(self,amount):
+        if self._balance >= amount:
+            self._balance -= amount
+            print(f"withdraw succefull.updated balance:{self._balance}")
+        else:
+            print("Balance is less than ask")
+        
+        
+class SavingAccount(Account):   # Inhertance
+    def calucalte_interest(self):
+        INTEREST_RATE=0.04  #%$
+        interest=self._balance*INTEREST_RATE
+        print(f"interest :{interst}")
+
+class CurrentAccount(Account):  #polymorpsim
+    def Withdraw (self,amount):
+        OVERRED_LIMIT=1000 
+        if self._balance + OVERRED_LIMIT >= amount:
+            self._balance -= amount
+            print(f"withdraw succefull.updated balance:{self._balance}")
+        else:
+            print("ask is over limit")
+
+class Bank:
+    def __init__(self,name,city):
+        self.name=name
+        self.city=city
+        self._account={}
+
+    def create_account(self,id,holder_name,type):
+        if type=="saving":
+            new_account=SavingAccount(id,holder_name)
+        elif type=="current":
+            new_account=CurrentAccount(id,holder_name)
+        self._account[id]=new_account
+        print("Account creat succesfull")
+        return new_account
+    def get_account(self,id):
+        if id not in self._accounts:
+            print("Account not found")
+            return None
+        else:
+            account=self.accounts[id]
+            print(f"\nID: {account.id}\nHolder name : {account.holder_name}")
+            return account
+
+cbk=Bank("Rajesh bank of karnataka", "mysore")
+
+s1=cbk.create_account("1","Darshn","saving")
+c1=cbk.create_account("2","virat","current")
+
+
+s1.Deposit(6000)
+s1.Deposit(500)
+
+
+
+s1.Withdraw(1000)
+s1.Withdraw(300)
+
+
+
+
+        
