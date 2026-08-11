@@ -1,0 +1,119 @@
+class Student:
+    def __init__(self, roll_no, name):
+        self.name = name
+        self.roll_no = roll_no
+        self.__marks = {}
+
+    def get_marks(self):
+        return self.__marks
+
+    def add_marks(self, subject, marks):
+        self.__marks[subject] = marks
+
+    def calculate_average(self):
+        total = 0
+
+        for mark in self.__marks.values():
+            total += mark
+
+        average = total / len(self.__marks)
+        return average
+
+    def is_passed(self):
+        has_passed = all(mark >= 35 for mark in self.__marks.values())
+
+        if has_passed:
+            print(f"{self.name} has passed")
+        else:
+            print(f"{self.name} has failed")
+
+    def calculate_grade(self):
+        percentage = self.calculate_average()
+
+        if percentage >= 95:
+            print("Grade: A")
+        elif percentage >= 85:
+            print("Grade: B")
+        elif percentage >= 70:
+            print("Grade: C")
+        elif percentage >= 50:
+            print("Grade: D")
+        else:
+            print("Grade: F")
+
+
+class ReportCard:
+
+    @staticmethod
+    def generate(student):
+        student_marks = student.get_marks()
+
+        print(f"\nName: {student.name}")
+        print(f"Roll No: {student.roll_no}")
+
+        print("----- Marks -----")
+
+        for subject, marks in student_marks.items():
+            print(f"{subject} - {marks}")
+
+        print("----------------")
+
+        print(f"Average: {student.calculate_average()}")
+
+        student.is_passed()
+        student.calculate_grade()
+
+        print()
+
+
+class ClassRoom:
+
+    def __init__(self, grade, section):
+        self.grade = grade
+        self.section = section
+        self.__students = []
+
+    def add_student(self, student):
+        self.__students.append(student)
+
+    def calculate_class_average(self):
+        total = 0
+
+        for student in self.__students:
+            total += student.calculate_average()
+
+        if len(self.__students) > 0:
+            return total / len(self.__students)
+        else:
+            return 0
+
+    def get_students_list(self):
+        for i, student in enumerate(self.__students):
+            print(f"{i + 1}. {student.name}")
+
+
+# Student 1
+a = Student(1, "Rajesh")
+a.add_marks("Kannada", 95)
+a.add_marks("Science", 35)
+
+# Classroom
+c = ClassRoom("10", "B")
+c.add_student(a)
+
+# Student 2
+b = Student(2, "Manya")
+b.add_marks("Kannada", 80)
+b.add_marks("Science", 90)
+
+c.add_student(b)
+
+# Display students
+c.get_students_list()
+
+# Report card
+ReportCard.generate(a)
+ReportCard.generate(b)
+
+# Class average
+print("Class Average:", c.calculate_class_average())
