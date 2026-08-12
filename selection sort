@@ -1,0 +1,50 @@
+#9. Implementation of selection sort 
+
+
+def selectionSort(arry):
+    size=len(arry)
+    for ind in range(size):
+        min_index=ind
+
+        for j in range(ind+1,size):
+            if arry[j] <arry[min_index]:
+                min_index=j
+
+        #swapping
+        (arry[ind],arry[min_index])=(arry[min_index],arry[ind])
+
+count=int(input("Enter how many elements :"))
+arr=[]
+
+for i in range(count):
+    arr.append(int(input()))
+
+
+if(count>0):
+    selectionSort(arr)
+    print("The arry ofter sorting in ascending order by selection sort id:")
+    print(arr)
+else:
+    print("arry is empty")
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
