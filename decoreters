@@ -1,0 +1,15 @@
+
+#decoreters
+def decoreters(func):
+    def wreper():
+        print("namaskara")
+        func()
+        print("takcare")
+
+    return wreper
+@decoreters
+def intro():
+    print("I am rajesh frome karnataka")
+intro()
+    
+    
