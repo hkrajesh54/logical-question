@@ -1,0 +1,12 @@
+
+
+#polindrom
+
+n=input("enter sring")
+
+if n==n[::-1]:
+    print("is a polindram")
+
+else:
+    print("not a polindram")
+            
