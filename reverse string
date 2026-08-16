@@ -1,0 +1,10 @@
+#reverse a string
+
+n=input("string")
+
+rev=""
+
+for i in n:
+    rev=i+rev
+
+print("reverse",rev)
