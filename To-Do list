@@ -1,0 +1,36 @@
+
+#Build a To-Do List application that stores tasks in a file
+
+# To-Do List using File Handling
+
+while True:
+    print("\n1. Add Task")
+    print("2. View Tasks")
+    print("3. Exit")
+
+    choice = int(input("Enter choice: "))
+
+    if choice == 1:
+        task = input("Enter task: ")
+
+        file = open("tasks.txt", "a")
+        file.write(task + "\n")
+        file.close()
+
+        print("Task added successfully!")
+
+    elif choice == 2:
+        file = open("tasks.txt", "r")
+
+        print("\nYour Tasks:")
+        for task in file:
+            print("-", task.strip())
+
+        file.close()
+
+    elif choice == 3:
+        print("Thank you!")
+        break
+
+    else:
+        print("Invalid choice")
