@@ -1,0 +1,13 @@
+class Employee:
+    def __init__(self,name,basic_salary):
+        self.name=name
+        self.basic_salary=basic_salary
+
+    def salary(self):
+        print("Employee Name:",self.name)
+        print("basic salary",self.basic_salary)
+        print("total salary",self.basic_salary)
+
+e1=Employee("Rajesh",20000)
+
+e1.salary()
