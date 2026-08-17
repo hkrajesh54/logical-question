@@ -1,0 +1,35 @@
+from tkinter import *
+a=Tk()
+a.geometry("100x500")
+t1=StringVar()
+t1=StringVar()
+
+def show():
+    n=int(t1.get())
+    if n%2==0:
+        t1.set("Even number")
+    else:
+        t2.set("odd number")
+
+def clear():
+    t1.set('')
+    t2.set('')
+    
+l1=Label(a,text="Enter your name",bg='green',fg='black',font=('combria',20,'bold'))
+l1.place(x=20,y=20)
+
+l1=Entry(a,textvariable=t1,font=('combria',20,'bold'))
+l1.place(x=250,y=20)
+
+b1=Button(a,text="submit",command=show,bg='green',fg='black',font=('combria',20,'bold'))
+b1.place(x=50,y=100)
+
+b2=Button(a,text="reset",command=clear,bg='pink',fg='black',font=('combria',20,'bold'))
+b2.place(x=280,y=100)
+
+
+l1=Label(a,text="Result",bg='green',fg='black',font=('combria',20,'bold'))
+l1.place(x=10,y=200)
+
+l1=Entry(a,textvariable=t1,font=('combria',20,'bold'))
+l1.place(x=250,y=200)
