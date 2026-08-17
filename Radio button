@@ -1,0 +1,52 @@
+# Radio button
+
+from tkinter import *
+from tkinter import messagebox
+
+a = Tk()
+a.geometry("600x500")
+
+t1 = IntVar()
+
+def fun1():
+    x = t1.get()
+
+    if x == 1:
+        messagebox.showinfo("Hello", "Male")
+    elif x == 2:
+        messagebox.showinfo("Hello", "Female")
+    elif x == 3:
+        messagebox.showinfo("Hello", "Others")
+    else:
+        messagebox.showinfo("Hello", "Selected none")
+
+l1 = Label(a, text="Select your gender",
+           bg="pink", fg="purple",
+           font=("Times New Roman", 20, "italic"))
+l1.place(x=20, y=50)
+
+r1 = Radiobutton(a, text="Male",
+                 variable=t1, value=1,
+                 bg="pink", fg="purple",
+                 font=("Times New Roman", 20, "italic"))
+r1.place(x=50, y=100)
+
+r2 = Radiobutton(a, text="Female",
+                 variable=t1, value=2,
+                 bg="pink", fg="purple",
+                 font=("Times New Roman", 20, "italic"))
+r2.place(x=50, y=200)
+
+r3 = Radiobutton(a, text="Other",
+                 variable=t1, value=3,
+                 bg="pink", fg="purple",
+                 font=("Times New Roman", 20, "italic"))
+r3.place(x=50, y=300)
+
+b1 = Button(a, text="Submit",
+            command=fun1,
+            fg="purple",
+            font=("Times New Roman", 20, "italic"))
+b1.place(x=50, y=400)
+
+a.mainloop()
