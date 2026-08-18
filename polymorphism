@@ -1,0 +1,47 @@
+
+#polymorphism
+
+class animal:
+    def greet(self):
+        print("hello good morning")
+
+    def eat(self):
+        print("all animals eat somthing")
+
+    def sound(self):
+        print("all animals make some sound")
+
+class lion(animal):
+    def eat(self):
+        print("lion eat meat")
+    def sound(self):
+        print("lion roros")
+
+class dog(animal):
+    def eat(self):
+        print("dog eat busit")
+    def sound(self):
+        print("dog barks")
+
+s1=animal()
+s2=lion()
+s3=dog()
+
+s1.greet()
+s1.eat()
+s1.sound()
+
+s2.greet()
+s2.eat()
+s2.sound()
+s3.greet()
+s3.eat()
+s3.sound()
+
+
+
+
+
+
+
+        
