@@ -1,0 +1,13 @@
+class Car:
+    def __init__(self,brand,model,price):
+        self.brand=brand
+        self.model=model
+        self.price=price
+
+    def details(self):
+        print("brand=",self.brand)
+        print("model=",self.model)
+        print("price=",self.price)
+
+s1=Car("Tata Tiago EV",2026,6.99)
+s1.details()
