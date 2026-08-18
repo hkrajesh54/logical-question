@@ -1,0 +1,55 @@
+#Employee Management System
+
+class employee():
+    def emp(self,id,name,salary):
+        self.id=id
+        self.name=name
+        self.salary=salary
+        print("salary=",self.salary)
+        
+
+class developer(employee):
+    def dev(self):
+        print("developer id=",self.id)
+        print("developer name=",self.name)
+
+class manager(employee):
+    def man(self):
+
+        print("manger id=",self.id)
+        print("manger name=",self.name)
+
+class tester(employee):
+    def tes(self):
+    
+        print("tester id=",self.id)
+        print("tester name=",self.name)
+
+s1=employee()
+s2=developer()
+s4=manager()
+s3=tester()
+s1=employee()
+
+
+
+
+s2.emp(102, "Rashmi", 20000)
+s2.dev()
+
+s3.emp(103, "Manya", 30000)
+s3.tes()
+
+s4.emp(104, "Rahul", 40000)
+s4.man()
+
+
+
+
+
+
+
+
+        
+        
+    
