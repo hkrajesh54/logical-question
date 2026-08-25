@@ -1,0 +1,15 @@
+class Solution:
+    def pattern6(self, n):
+
+        for i in range(n):
+            for j in range(i,n):
+
+                j=j-i+1
+                
+
+                print(j,end="")
+
+            print()
+
+obj=Solution()
+obj.pattern6(4)
