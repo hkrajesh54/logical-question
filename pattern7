@@ -1,0 +1,12 @@
+class Solution:
+    def pattern7(self, n):
+
+        for i in range(0,7,2):
+            print(end="")
+            i=i+1
+
+            print("* "*i)
+
+obj=Solution()
+obj.pattern7(4)
+            
