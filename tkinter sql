@@ -1,0 +1,108 @@
+
+from tkinter import *
+from tkinter import messagebox
+import mysql.connector as sql
+
+a = Tk()
+a.geometry("800x600")
+a.config(bg="skyblue")
+
+t1 = StringVar()
+t2 = StringVar()
+t3 = StringVar()
+t4 = StringVar()
+
+
+def add():
+    try:
+        con = sql.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="rajesh"
+        )
+
+        c = con.cursor()
+
+        c.execute(
+            "INSERT INTO bro (id, name, address, designation) VALUES (%s, %s, %s, %s)",
+            (t1.get(), t2.get(), t3.get(), t4.get())
+        )
+
+        con.commit()
+
+        messagebox.showinfo("Success", "Employee details added")
+
+        con.close()
+
+    except Exception as e:
+        messagebox.showerror("Error", str(e))
+
+
+# Row 1 - Company Details
+l1 = Label(a, text="COMPANY DETAILS",
+           font=("Cambria", 30, "bold"),
+           bg="pink", fg="red")
+l1.pack(fill=X, pady=10)
+
+
+# Row 2 - Employee Details
+l2 = Label(a, text="EMPLOYEE DETAILS",
+           font=("Cambria", 25, "bold"),
+           bg="yellow", fg="blue")
+l2.pack(fill=X, pady=10)
+
+
+# ID
+l3 = Label(a, text="ID",
+           font=("Arial", 18, "bold"),
+           bg="blue", fg="white")
+l3.place(x=100, y=150)
+
+e1 = Entry(a, textvariable=t1,
+           font=("Arial", 18))
+e1.place(x=300, y=150)
+
+
+# Employee Name
+l4 = Label(a, text="Employee Name",
+           font=("Arial", 18, "bold"),
+           bg="blue", fg="white")
+l4.place(x=100, y=200)
+
+e2 = Entry(a, textvariable=t2,
+           font=("Arial", 18))
+e2.place(x=300, y=200)
+
+
+# Address
+l5 = Label(a, text="Address",
+           font=("Arial", 18, "bold"),
+           bg="blue", fg="white")
+l5.place(x=100, y=250)
+
+e3 = Entry(a, textvariable=t3,
+           font=("Arial", 18))
+e3.place(x=300, y=250)
+
+
+# Designation
+l6 = Label(a, text="Designation",
+           font=("Arial", 18, "bold"),
+           bg="blue", fg="white")
+l6.place(x=100, y=300)
+
+e4 = Entry(a, textvariable=t4,
+           font=("Arial", 18))
+e4.place(x=300, y=300)
+
+
+# Add Button
+b1 = Button(a, text="ADD",
+            command=add,
+            font=("Arial", 18, "bold"))
+b1.place(x=300, y=370)
+
+
+a.mainloop()
+
